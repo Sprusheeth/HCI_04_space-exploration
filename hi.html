@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Explorer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4299e1;
+        }
+
+        .planet-selector {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            text-align: center;
+            z-index: 99;
+        }
+
+        .planet-btn {
+            background: #2d3748;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .planet-btn.active {
+            background: #4299e1;
+        }
+
+        .planet-btn:hover {
+            background: #4a5568;
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 2rem 4rem;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .planet-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .planet-description {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+
+        .planet-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: rgba(45, 55, 72, 0.5);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #a0aec0;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-number {
+            font-size: 4rem;
+            opacity: 0.25;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(45, 55, 72, 0.5);
+            border-radius: 0.5rem;
+        }
+
+        .composition-chart {
+            background: rgba(45, 55, 72, 0.5);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+        }
+
+        .composition-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .composition-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        footer {
+            background: #1a202c;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-input {
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+            border: none;
+            border-radius: 0.25rem;
+        }
+
+        .newsletter-btn {
+            padding: 0.5rem 1rem;
+            background: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+        }
+
+        @media (max-width: 768px) {
+            .planet-title {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .planet-selector {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding: 1rem 0;
+            }
+
+            .planet-btn {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🚀 Space Explorer</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="planet-selector">
+        <button class="planet-btn active" data-planet="mercury">Mercury</button>
+        <button class="planet-btn" data-planet="venus">Venus</button>
+        <button class="planet-btn" data-planet="mars">Mars</button>
+        <button class="planet-btn" data-planet="jupiter">Jupiter</button>
+        <button class="planet-btn" data-planet="saturn">Saturn</button>
+    </div>
+
+    <main id="planet-content">
+        <!-- Planet content will be dynamically inserted here -->
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ExploreUniverse</h3>
+                <p>232 W 29th St</p>
+                <p>New York, NY 10001, USA</p>
+                <p>+1 875 254 7554</p>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Stay updated with our latest discoveries</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input">
+                    <button class="newsletter-btn">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Space Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Planet data
+        const planetData = {
+            mercury: {
+                name: "MERCURY",
+                description: "The smallest and innermost planet in the Solar System, Mercury is also the fastest-moving, completing an orbit around the Sun in just 88 Earth days.",
+                stats: {
+                    day: "176 Earth days",
+                    radius: "1,516 miles",
+                    moons: "0",
+                    type: "Terrestrial"
+                },
+                overview: "Mercury's surface resembles that of Earth's Moon, bearing witness to a history of heavy bombardment by meteors and asteroids. Its surface temperatures are the most extreme in the solar system.",
+                features: [
+                    "Caloris Basin - One of the largest impact features in the Solar System",
+                    "Rich in volatile elements",
+                    "Contains unusually high amounts of sulfur"
+                ],
+                composition: [
+                    { name: "Oxygen", percentage: 42, color: "#4299E1" },
+                    { name: "Sodium", percentage: 29, color: "#F6E05E" },
+                    { name: "Hydrogen", percentage: 22, color: "#68D391" }
+                ]
+            },
+            venus: {
+                name: "VENUS",
+                description: "Often called Earth's sister planet due to their similar size, Venus is the hottest planet in our solar system due to its thick atmosphere of carbon dioxide.",
+                stats: {
+                    day: "243 Earth days",
+                    radius: "3,760.4 miles",
+                    moons: "0",
+                    type: "Terrestrial"
+                },
+                overview: "Venus rotates on its axis backward, with the sun rising in the west and setting in the east. The surface is dominated by volcanic features.",
+                features: [
+                    "Maxwell Montes - The highest mountain on Venus",
+                    "Thick atmosphere of carbon dioxide",
+                    "Surface pressure 90 times that of Earth"
+                ],
+                composition: [
+                    { name: "Carbon Dioxide", percentage: 96.5, color: "#4299E1" },
+                    { name: "Nitrogen", percentage: 3.5, color: "#68D391" },
+                    { name: "Sulfur Dioxide", percentage: 0.015, color: "#F6E05E" }
+                ]
+            },
+            mars: {
+                name: "MARS",
+                description: "The Red Planet has long captured human imagination and is the focus of many exploration missions. It's the most likely planet to have once harbored life.",
+                stats: {
+                    day: "24 hours 37 minutes",
+                    radius: "2,106 miles",
+                    moons: "2",
+                    type: "Terrestrial"
+                },
+                overview: "Mars is home to both the highest mountain and the deepest known canyon in the Solar System. Its red color comes from iron oxide (rust) in its soil.",
+                features: [
+                    "Olympus Mons - The largest volcano in the Solar System",
+                    "Valles Marineris - The largest canyon in the Solar System",
+                    "Polar ice caps containing water ice"
+                ],
+                composition: [
+                    { name: "Carbon Dioxide", percentage: 95.3, color: "#4299E1" },
+                    { name: "Nitrogen", percentage: 2.7, color: "#68D391" },
+                    { name: "Argon", percentage: 1.6, color: "#FC8181" }
+                ]
+            }
+        };
+
+        function createPlanetContent(planetData) {
+            return `
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1 class="planet-title">${planetData.name}</h1>
+                        <p class="planet-description">${planetData.description}</p>
+                        <div class="planet-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">DAY LENGTH</div>
+                                <div class="stat-value">${planetData.stats.day}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">RADIUS</div>
+                                <div class="stat-value">${planetData.stats.radius}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">MOONS</div>
+                                <div class="stat-value">${planetData.stats.moons}</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">PLANET TYPE</div>
+                                <div class="stat-value">${planetData.stats.type}</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="section-inner">
+                        <div class="section-number">01</div>
+                        <h2 class="section-title">OVERVIEW</h2>
+                        <div class="grid-2">
+                            <div>
+                                <p>${planetData.overview}</p>
+                            </div>
+                            <div>
+                                <img src="/api/placeholder/600/400" alt="${planetData.name}" style="width: 100%; border-radius: 0.5rem;">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section" style="background: rgba(45, 55, 72, 0.3);">
+                    <div class="section-inner">
+                        <div class="section-number">02</div>
+                        <h2 class="section-title">FEATURES</h2>
+                        <ul class="features-list">
+                            ${planetData.features.map(feature => `
+                                <li>${feature}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="section-inner">
+                        <div class="section-number">03</div>
+                        <h2 class="section-title">COMPOSITION</h2>
+                        <div class="grid-2">
+                            <div class="composition-chart">
+                                ${planetData.composition.map(element => `
+                                    <div class="composition-item">
+                                        <div class="composition-color" style="background-color: ${element.color}"></div>
+                                        <div>${element.name}: ${element.percentage}%</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        // Initialize page with Mercury data
+        document.getElementById('planet-content').innerHTML = createPlanetContent(planetData.mercury);
+
+        // Add click handlers for planet buttons
+        document.querySelectorAll('.planet-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                document.querySelector('.planet-btn.active').classList.remove('active');
+                button.classList.add('active');
+
+                // Update content
+                const planetName = button.dataset.planet;
+                document.getElementById('planet-content').innerHTML = createPlanetContent(planetData[planetName]);
+            });
+        });

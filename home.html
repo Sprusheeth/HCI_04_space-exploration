@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Exploration</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      color: #ffffff;
+      background-color: #000000;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 100;
+    }
+
+    .navbar .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .navbar ul li {
+      margin-left: 20px;
+    }
+
+    .navbar ul li a:hover {
+      color: #1E90FF;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url('https://wallpaperaccess.com/full/39648.jpg') no-repeat center center/cover;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 1.5em;
+    }
+
+    .hero .cta {
+      padding: 0.8em 2em;
+      background: #1E90FF;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.3s;
+    }
+
+    .cta{
+      border-radius: 15px;
+    }
+
+    .hero .cta:hover {
+      background: #104E8B;
+    }
+
+    /* Space Blog Section */
+    .blog-section {
+      padding: 3em 1em;
+      background: #000000;
+      text-align: center;
+    }
+
+    .blog-section h2 {
+      font-size: 2.5em;
+      margin-bottom: 1em;
+    }
+
+    .blog-cards {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+    }
+
+    .blog-card {
+      width: 300px;
+      background: rgba(30, 30, 30, 0.9);
+      padding: 1.5em;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .blog-card h3 {
+      margin-top: 1em;
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      padding: 3em 1em;
+      background: #111111;
+      text-align: center;
+    }
+
+    .gallery-section h2 {
+      font-size: 2.5em;
+      margin-bottom: 1em;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 10px;
+      overflow-x: scroll;
+      padding-bottom: 1em;
+    }
+
+    .gallery img {
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 3em 1em;
+      background: #000000;
+      text-align: center;
+    }
+
+    .about-section h2 {
+      font-size: 2.5em;
+      margin-bottom: 1em;
+    }
+
+    .about-section p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.2em;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 3em 1em;
+      background: #111111;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 2.5em;
+      margin-bottom: 1em;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8em;
+      margin-bottom: 1em;
+      border: 1px solid #333333;
+      border-radius: 5px;
+      background: #222222;
+      color: #ffffff;
+    }
+
+    .contact-form button {
+      padding: 0.8em 2em;
+      background: #1E90FF;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #104E8B;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 2em;
+      text-align: center;
+      background: #000000;
+    }
+
+    .footer a:hover {
+      color: #1E90FF;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">SpaceBlog</div>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="lab3.html">Signin</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="hero">
+    <div>
+      <h1>Explore the Final Frontier</h1>
+      <p>Dive into the mysteries of the universe with our space exploration blog and gallery.</p>
+      <a href="index.html"></a>Read the Blog</a>
+    </div>
+  </section>
+
+  <!-- Space Blog Section -->
+  <section id="blog" class="blog-section">
+    <h2>Latest from the Space Blog</h2>
+    <div class="blog-cards">
+      <div class="blog-card">
+        <img src="https://th.bing.com/th/id/R.c98328db924da4f6b5990707905ec300?rik=0zh98boJmBzf8Q&riu=http%3a%2f%2fimg.sxsw.com%2f2016%2fspg_images%2fPP56374.png&ehk=q00%2bnJh9gbeC7c8DtAX2SpEiL0v2GnPiqq0BbM1TUoQ%3d&risl=&pid=ImgRaw&r=0" alt="Planet">
+        <h3>Journey to Mars</h3>
+        <p>Discover the latest in our efforts to reach the Red Planet.</p>
+      </div>
+      <div class="blog-card">
+        <img src="https://th.bing.com/th/id/OIP.Y2Bw9jHkqc-BPngofsJDzAHaHa?rs=1&pid=ImgDetMain" alt="Galaxy">
+        <h3>The Milky Way</h3>
+        <p>A closer look at the mysteries of our home galaxy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <!-- <section id="gallery" class="gallery-section">
+    <h2>The Wonders of the Universe</h2>
+    <div class="gallery">
+      <img src="https://www.alsc.ala.org/blog/wp-content/uploads/2015/12/fullsize_wonders_universe.jpg" alt="Space Image 1">
+      <img src="https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vbWVkaWEucmJsLm1zL2ltYWdlP3U9JTJGZmlsZXMlMkYyMDE2JTJGMDclMkYxMSUyRjYzNjAzODc0MzQwODk0MzAzOS0xMjU0NzM1NTU0X0Nhc3Npb3BlaWFfQV9TcGl0emVyX0Nyb3AuanBnJmhvPWh0dHBzJTNBJTJGJTJGYXo2MTY1Nzgudm8ubXNlY25kLm5ldCZzPTYxMCZoPTliOWI3Njk0OWMxMGE1YWRhMDc5YWE2YTZiNGFiYzNkOTIzYjIyOWVlM2ZmZTFjNzMzN2JlZDI4M2QxM2I5YWImc2l6ZT05ODB4JmM9MjUwMzg3NTUyMSIsImV4cGlyZXNfYXQiOjE2NTcwODkzMjV9.ishQqj8PkGJJvijcW-X_AtYsWiI2OY4XSaV4UDTZfaM/img.jpg?width=1200&height=628" alt="Space Image 2">
+    </div>
+  </section> -->
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>Welcome to SpaceBlog, where we explore the universe through articles, images, and discussions.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 SpaceBlog | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>

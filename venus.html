@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venus - The Second Planet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+        }
+    
+        .logo {
+            font-size: 24px;
+        }
+    
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+    
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+    
+        nav a:hover {
+            background-color: #333;
+        }
+
+        .bg-image {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://wallpaperaccess.com/full/1771174.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 0;
+        }
+
+        .bg-image h1 {
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+
+        .info div {
+            text-align: center;
+            padding: 20px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info div:last-child {
+            border-right: none;
+        }
+
+        .info h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .number {
+            font-size: 64px;
+            font-weight: bold;
+            color: rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
+
+        .overview-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .overview-text {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-item .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .stat-item .label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .features-section {
+            background: rgba(255,255,255,0.02);
+            padding: 100px 0;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,123,255,0.1), transparent);
+            pointer-events: none;
+        }
+
+        .circle-container {
+            position: relative;
+            width : 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#007bff 90%, #6c757d 10%);
+            box-shadow: 0 0 30px rgba(0,123,255,0.3);
+        }
+
+        .circle-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .legend {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .hydrogen::before,
+        .helium::before {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        .hydrogen::before {
+            background: #007bff;
+        }
+
+        .helium::before {
+            background: #6c757d;
+        }
+
+        .europa-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 30px 0;
+            color: #007bff;
+        }
+
+        .europa-details {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .image-container {
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+        }
+
+        .planet-image {
+            background-attachment: fixed;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+        }
+
+        .content {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #007bff;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+        }
+
+        .content {
+            text-align: left;
+            padding: 100px 50px;
+        }
+        .content h1 {
+            font-size: 80px;
+            font-weight: bold;
+        }
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .content a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background-image: url('https://static.vecteezy.com/system/resources/previews/010/377/431/large_2x/beautiful-view-on-planet-earth-from-space-at-night-with-city-light-fantasy-and-futuristic-digital-art-style-background-wallpaper-free-photo.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            padding: 50px 0;
+        }
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer .contact-info, .footer .newsletter, .footer .links {
+            flex: 1;
+            margin: 20px;
+        }
+        .footer .contact-info p, .footer .links p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .footer .newsletter input {
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            margin -right: 10px;
+        }
+        .footer .newsletter button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #4a90e2;
+            color: #fff;
+        }
+        .footer .links {
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer .links div {
+            margin-right: 20px;
+        }
+        .footer .links div p {
+            font-weight: bold;
+        }
+        .footer .links div ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer .links div ul li {
+            margin: 5px 0;
+        }
+        .footer .links div ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer .links div ul li a:hover {
+            text-decoration: underline;
+        }
+        .footer .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .footer .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        .img-fluid .planet-image{
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<header>
+        <div class="logo">🚀 Space Blog</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="lab3.html">Sign up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-image">
+        <div class="container">
+            <h1>VENUS</h1>
+            <p class="lead">Venus is the second planet from the sun and is often referred to as Earth's twin due to their similar size and mass.</p>
+            
+            <div class="info">
+                <div>
+                    <h3>DAY</h3>
+                    <p>243 Earth days</p>
+                </div>
+                <div>
+                    <h3>RADIUS</h3>
+                    <p>6,052 miles</p>
+                </div>
+                <div>
+                    <h3>MOONS</h3>
+                    <p>0</p>
+                </div>
+                <div>
+                    <h3>PLANET TYPE</h3>
+                    <p>Terrestrial</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="number">01</div>
+                <h2 class="overview-title">OVERVIEW</h2>
+                <p class="overview-text">Venus is the second planet from the sun and is often referred to as Earth's twin due to their similar size and mass. However, that's where the similarities end, as Venus has a thick atmosphere that traps heat, making it the hottest planet in the solar system.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="image-container">
+                    <img src="https://wallpaperaccess.com/full/1771174.jpg" alt="Venus" class="img-fluid">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="value">4,879,000,000,000 kg</div>
+                <div class="label">MASS</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">6,052 miles</div>
+                <div class="label">DIAMETER</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">462°C</div>
+                <div class="label">SURFACE TEMPERATURE</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="number">02</div>
+            <h2 class="title">FEATURES</h2>
+            <p>Venus has a thick atmosphere that traps heat, making it the hottest planet in the solar system.</p>
+
+            <div class="content-section mt-5">
+                <h3 class=" overview-title">VOLCANOES</h3>
+                <p>Venus has numerous volcanoes, with over 1,600 major volcanoes and numerous smaller volcanic features.</p>
+                <ul>
+                    <li>Venus's volcanoes are relatively young, indicating that the planet has experienced volcanic activity in the recent past.</li>
+                    <li>The volcanoes on Venus are thought to be the result of a combination of tectonic activity and volcanic processes.</li>
+                    <li>The volcanoes on Venus are relatively small compared to those on other planets.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- In Depth Section -->
+    <section class="container">
+        <div class="text-center">
+            <div class="number">03</div>
+            <h2 class="title">IN DEPTH</h2>
+            <p class="subtitle">Venus's environment is probably not conducive to life as we know it. The temperatures, pressures and materials that characterize this planet are most likely too extreme and volatile for organisms to adapt to.</p>
+        </div>
+
+        <div class="row mt-5 align-items-center">
+            <div class="col-md-6">
+                <div class="content">
+                    <p>Venus's surface is hidden by thick clouds of sulfuric acid and droplets of sulfuric acid, making it difficult to observe the planet's surface.</p>
+                    <p class="mt-4">Venus's atmosphere is composed mostly of carbon dioxide, with clouds of sulfuric acid and droplets of sulfuric acid.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="circle-container">
+                    <div class="circle"></div>
+                    <div class="circle-text">96.5%<br>carbon dioxide</div>
+                </div>
+                <div class="legend">
+                    <div class="hydrogen">carbon dioxide</div>
+                    <div class="helium">nitrogen</div>
+                </div>
+                <p class="text-center mt-3">Venus's atmosphere is composed mostly of carbon dioxide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moons Section -->
+    <section class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="number">04</div>
+                <h2 class="title">MOONS</h2>
+                <p class="content">Venus's lack of natural satellites is a fascinating topic for planetary scientists, and there are a few theories to explain why this might be the case:<br>
+
+                    One prevailing theory is that Venus's close proximity to the Sun plays a significant role. Being the second planet from the Sun, Venus is heavily influenced by the Sun’s gravitational pull, which could have disrupted the orbit of any potential moon. If Venus ever had a moon, it might have been drawn away by the Sun’s strong gravity over time. Another possibility is that Venus’s retrograde rotation — rotating in the opposite direction of most planets — could have destabilized any moons it might have had. Finally, it’s also possible that Venus simply never had the chance to capture or retain a moon due to conditions during its formation. The absence of a moon on Venus makes it unique among the inner planets, offering a fascinating glimpse into planetary formation and the effects of solar gravity.</p>
+            </div>
+            <div class="col-md-6 text-end">
+                <img src="https://th.bing.com/th/id/OIP.KMcqoqL22AhPh-VTjB8rmQHaEK?rs=1&pid=ImgDetMain" alt="Venus" class="img-fluid">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <!-- <img src="https://th.bing.com/th/id/OIP.KMcqoqL22AhPh-VTjB8rmQHaEK?rs=1&pid=ImgDetMain" alt="Venus" class="planet-image" > -->
+                <h3 class="europa-title">Venus</h3>
+                <div class="europa-details">
+                    <p>Venus is the second planet from the sun and is often referred to as Earth's twin due to their similar size and mass.</p>
+                    <p>Venus has a thick atmosphere that traps heat, making it the hottest planet in the solar system.</p>
+                    <p>Venus's surface is hidden by thick clouds of sulfuric acid and droplets of sulfuric acid, making it difficult to observe the planet's surface.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <div class="content">
+        <p>View next</p>
+        <h1>EARTH</h1>
+        <p>Earth is the third planet from the sun and is the only known planet in the universe that supports life. It is a terrestrial planet, composed of iron, oxygen, silicon, magnesium, and nickel, and has a diverse range of environments, including oceans, continents, and atmosphere.</p>
+        <a href="#">Explore Earth <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="contact-info">
+                <p><i class="fas fa-globe"></i> ExploreUniverse</p>
+                <p>232 W 29th St, New York, NY 10001, USA</p>
+                <p>+1 875 254 7554, +1 875 254 7554</p>
+                <p>hello@exploreuniverse.com</p>
+            </div>
+            <div class="newsletter">
+                <p>Stay up to date on the latest stories with our newsletter</p>
+                <input type ="email" placeholder="Enter Email">
+                <button>Subscribe</button>
+            </div>
+            <div class="links">
+                <div>
+                    <p>SOLAR SYSTEM</p>
+                    <ul>
+                        <li><a href="#">General information about Solar System</a></li>
+                        <li><a href="#">Our Solar system</a></li>
+                        <li><a href="#">Sun</a></li>
+                        <li><a href="#">Kuiper belt</a></li>
+                        <li><a href="#">Moons</a></li>
+                        <li><a href="#">Small bodies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>PLANETS</p>
+                    <ul>
+                        <li><a href="#">Detail information about planets and dwarf planets</a></li>
+                        <li><a href="#">PLANETS</a></li>
+                        <li><a href="#">Mercury</a></li>
+                        <li><a href="#">Venus</a></li>
+                        <li><a href="#">Earth</a></li>
+                        <li><a href="#">Mars</a></li>
+                        <li><a href="#">Jupiter</a></li>
+                        <li><a href="#">Saturn</a></li>
+                        <li><a href="#">Uranus</a></li>
+                        <li><a href="#">Neptune</a></li>
+                        <li><a href="#">DWARF PLANETS</a></li>
+                        <li><a href="#">Pluto</a></li>
+                        <!-- <li><a href="#">Ceres</a></li>
+                        <li><a href="#">Eris</a></li>
+                        <li><a href="#">Haumea</a></li>
+                        <li><a href="#">Makemake</a></li> -->
+                    </ul>
+                </div>
+                <div>
+                    <p>EXPLORATION</p>
+                    <ul>
+                        <li><a href="#">History of exploration of Solar System</a></li>
+                        <li><a href="#">History of exploration</a></li>
+                        <li><a href="#">Targets of exploration</a></li>
+                        <li><a href="#">Future of space exploration</a></li>
+                        <li><a href="#">Satellites</a></li>
+                        <li><a href="#">Spacecrafts</a></li>
+                        <li><a href="#">Living in space</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-google"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="text-center mt-4">
+            <p> 2017-2018 ExploreUniverse Inc.</p>
+            <p><a href="#" style="color: #fff;">ABOUT US</a> | <a href="#" style="color: #fff;">FEEDBACK</a> | <a href="#" style="color: #fff;">PRIVACY</a></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

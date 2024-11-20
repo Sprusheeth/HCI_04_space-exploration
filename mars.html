@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars - The Red Planet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+        }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #333;
+        }
+
+        .bg-image {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://th.bing.com/th/id/OIP.UKtpMRE0xR_0nKTMyjj95wHaEK?rs=1&pid=ImgDetMain');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 0;
+        }
+
+        .bg-image h1 {
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+
+        .info div {
+            text-align: center;
+            padding: 20px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info div:last-child {
+            border-right: none;
+        }
+
+        .info h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .number {
+            font-size: 64px;
+            font-weight: bold;
+            color: rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
+
+        .overview-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .overview-text {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-item .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .stat-item .label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .features-section {
+            background: rgba(255,255,255,0.02);
+            padding: 100px 0;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,123,255,0.1), transparent);
+            pointer-events: none;
+        }
+
+        .circle-container {
+            position: relative;
+            width: 300px;
+            height: 300px ;
+            margin: 0 auto;
+        }
+
+        .circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#007bff 90%, #6c757d 10%);
+            box-shadow: 0 0 30px rgba(0,123,255,0.3);
+        }
+
+        .circle-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .legend {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .hydrogen::before,
+        .helium::before {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        .hydrogen::before {
+            background: #007bff;
+        }
+
+        .helium::before {
+            background: #6c757d;
+        }
+
+        .europa-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 30px 0;
+            color: #007bff;
+        }
+
+        .europa-details {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .image-container {
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+        }
+
+        .planet-image {
+            background-attachment: fixed;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+        }
+
+        .content {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #007bff;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+        }
+
+        .content {
+            text-align: left;
+            padding: 100px 50px;
+        }
+        .content h1 {
+            font-size: 80px;
+            font-weight: bold;
+        }
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .content a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background-image: url('https://static.vecteezy.com/system/resources/previews/010/377/431/large_2x/beautiful-view-on-planet-earth-from-space-at-night-with-city-light-fantasy-and-futuristic-digital-art-style-background-wallpaper-free-photo.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            padding: 50px 0;
+        }
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer .contact-info, .footer .newsletter, .footer .links {
+            flex: 1;
+            margin: 20px;
+        }
+        .footer .contact-info p, .footer .links p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .footer .newsletter input {
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+        .footer .newsletter button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #4a90e2;
+            color: #fff ;
+        }
+        .footer .links {
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer .links div {
+            margin-right: 20px;
+        }
+        .footer .links div p {
+            font-weight: bold;
+        }
+        .footer .links div ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer .links div ul li {
+            margin: 5px 0;
+        }
+        .footer .links div ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer .links div ul li a:hover {
+            text-decoration: underline;
+        }
+        .footer .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .footer .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        .img-fluid .planet-image{
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">🚀 Space Blog</div>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="lab3.html">Sign up</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="bg-image">
+    <div class="container">
+        <h1>MARS</h1>
+        <p class="lead">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System. It is a rocky planet with a thin atmosphere, and its surface is characterized by numerous valleys, craters, and volcanoes.</p>
+        
+        <div class="info">
+            <div>
+                <h3>DAY</h3>
+                <p>24.6 Hours</p>
+            </div>
+            <div>
+                <h3>RADIUS</h3>
+                <p>2,106 miles</p>
+            </div>
+            <div>
+                <h3>MOONS</h3>
+                <p>2 (Phobos and Deimos)</p>
+            </div>
+            <div>
+                <h3>PLANET TYPE</h3>
+                <p>Rocky</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Overview Section -->
+<section class="container">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="number">01</div>
+            <h2 class="overview-title">OVERVIEW</h2>
+            <p class="overview-text">Mars is a rocky planet with a thin atmosphere, and its surface is characterized by numerous valleys, craters, and volcanoes. The planet's surface is divided into two main regions: the southern hemisphere, which is covered with craters, and the northern hemisphere, which is smoother and has fewer craters.</p>
+        </div>
+        <div class="col-md-6">
+            <div class="image-container">
+                <img src="https://wallpaperaccess.com/full/3456675.jpg" alt="Mars" class="img-fluid">
+                <div class="overlay"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <div class="value">142,984,000</div>
+            <div class="label">DISTANCE TO SUN, MILES</div>
+        </div>
+        <div class="stat-item">
+            <div class="value">687 Earth days</div>
+            <div class="label">LENGTH OF YEAR</div>
+        </div>
+        <div class="stat-item">
+            <div class="value">-125°C</div>
+            <div class="label">LOWEST TEMPERATURE</div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <div class="number">02</div>
+        <h2 class="title">FEATURES</h2>
+        <p>Mars has several distinct features, including the largest volcano in the Solar System, Olympus Mons, and the longest valley in the Solar System, Valles Marineris.</p>
+
+        <div class="content-section mt-5">
+            <h3 class="overview-title">OLYMPUS MONS</h3>
+            <p>Olympus Mons is the largest volcano in the Solar System, with a height of over 27 km and a base diameter of over 600 km. It is located in the Tharsis region of Mars and is considered one of the most impressive geological features in the Solar System.</p>
+            <ul>
+                <li>Olympus Mons is around three times the height of Mount Everest.</li>
+                <li>It is the largest known volcano in the Solar System.</li>
+                <li>The volcano is around 600 km wide and has a total volume of around 2.5 million cubic kilometers.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- In Depth Section -->
+<section class="container">
+    <div class="text-center">
+        <div class="number">03</div>
+        <h2 class="title">IN DEPTH</h2>
+        <p class="subtitle">Mars is a rocky planet with a thin atmosphere, and its surface is characterized by numerous valleys, craters, and volcanoes. The planet's surface is divided into two main regions: the southern hemisphere, which is covered with craters, and the northern hemisphere, which is smoother and has fewer craters.</p>
+    </div>
+
+    <div class="row mt-5 align-items-center">
+        <div class="col-md-6">
+            <div class="content">
+                <p>Mars has two small natural satellites, Phobos and Deimos. Both moons were discovered in 1877 by astronomer Asaph Hall.</p>
+                <p class="mt-4">The planet's atmosphere is too thin to support liquid water, but there is evidence that water once flowed on Mars. The planet's surface is home to numerous valleys, craters, and volcanoes, which provide clues about its geological history.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="circle-container">
+                <div class="circle"></div>
+                <div class="circle-text">95%<br>carbon dioxide</div>
+            </div>
+            <div class="legend">
+                <div class="hydrogen">carbon dioxide</div>
+                <div class="helium">nitrogen</div>
+            </div>
+            <p class="text-center mt-3">Mars' atmosphere is mostly carbon dioxide, with some nitrogen and argon.</p>
+        </div>
+    </div>
+</section>
+<!-- Moons Section -->
+<section class="container">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="number">04</div>
+            <h2 class="title">MOONS</h2>
+            <p>Mars has two small natural satellites, Phobos and Deimos. Both moons were discovered in 1877 by astronomer Asaph Hall.</p>
+        </div>
+        <div class="col-md-6 text-end">
+            <img src="https://preview.redd.it/5sf7we9m17t71.png?auto=webp&s=0f50d29b5ddfe511c575a8ad16913fcc5ddacfcd" alt="Phobos" class="img-fluid">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <img src="https://th.bing.com/th/id/R.db54deb57ababf337ce1fa161a2697d4?rik=nETPCmlVg3pw4w&riu=http%3a%2f%2fplanetary.s3.amazonaws.com%2fimage%2fPSP_007769_9010_IRB_180.jpg&ehk=J9e8404Q1hExhn6wqt5%2bqu9vwTy80tDd4wzHmZVH%2fZY%3d&risl=&pid=ImgRaw&r=0" alt="Phobos" class="planet-image">
+            <h3 class="europa-title">Phobos</h3>
+            <div class="europa-details">
+                <p>Phobos is the larger of Mars's two moons, measuring about 22 km in diameter. It has an irregular shape, resembling an asteroid.</p>
+                <p>Phobos orbits Mars at a very close distance of approximately 6,000 km, closer to its planet than any other moon in the Solar System. Because of its proximity, Phobos completes an orbit in just over 7 hours, meaning it rises and sets twice each Martian day.</p>
+                <p>Scientists believe Phobos may be a captured asteroid from the nearby asteroid belt, or possibly a remnant from Mars's formation. Its surface is covered with deep grooves and craters, the largest being Stickney Crater.</p>
+                <p>Due to gravitational interactions, Phobos is slowly spiraling towards Mars and is expected to either crash into the planet or break up into a ring in about 50 million years.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <img src="https://th.bing.com/th/id/OIP.je3Xdqy_jIYJpy1mpu4MRwHaHa?rs=1&pid=ImgDetMain" alt="Deimos" class="planet-image">
+            <h3 class="europa-title">Deimos</h3>
+            <div class="europa-details">
+                <p>Deimos is Mars’s smaller moon, with a diameter of approximately 12 km, making it one of the smallest known moons in the Solar System.</p>
+                <p>It orbits Mars at a distance of about 23,500 km and takes roughly 30 hours to complete one orbit.</p>
+                <p>Like Phobos, Deimos is believed to be a captured asteroid or a remnant from the early solar system. Its surface is relatively smooth and dusty, covered with regolith and fewer craters than Phobos, giving it a more rounded appearance.</p>
+                <p>Unlike Phobos, Deimos’s orbit is slowly moving away from Mars over time, meaning it will not experience the same fate as Phobos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="content">
+    <p>View next</p>
+    <h1>JUPITER</h1>
+    <p>Jupiter is the fifth planet from the Sun and the largest planet in the Solar System. It is a gas giant, composed mainly of hydrogen and helium.</p>
+    <a href="#">Explore Jupiter <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="contact-info">
+            <p><i class="fas fa-globe"></i> ExploreUniverse</p>
+            <p>232 W 29th St, New York, NY 10001, USA</p>
+            <p>+1 875 254 7554, +1 875 254 7554</p>
+            <p>hello@exploreuniverse.com</p>
+        </div>
+        <div class="newsletter">
+            <p>Stay up to date on the latest stories with our newsletter</ p>
+            <input type="email" placeholder="Enter Email">
+            <button>Subscribe</button>
+        </div>
+        <div class="links">
+            <div>
+                <p>SOLAR SYSTEM</p>
+                <ul>
+                    <li><a href="#">General information about Solar System</a></li>
+                    <li><a href="#">Our Solar system</a></li>
+                    <li><a href="#">Sun</a></li>
+                    <li><a href="#">Kuiper belt</a></li>
+                    <li><a href="#">Moons</a></li>
+                    <li><a href="#">Small bodies</a></li>
+                </ul>
+            </div>
+            <div>
+                <p>PLANETS</p>
+                <ul>
+                    <li><a href="#">Detail information about planets and dwarf planets</a></li>
+                    <li><a href="#">PLANETS</a></li>
+                    <li><a href="#">Mercury</a></li>
+                    <li><a href="#">Venus</a></li>
+                    <li><a href="#">Earth</a></li>
+                    <li><a href="#">Mars</a></li>
+                    <li><a href="#">Jupiter</a></li>
+                    <li><a href="#">Saturn</a></li>
+                    <li><a href="#">Uranus</a></li>
+                    <li><a href="#">Neptune</a></li>
+                    <li><a href="#">DWARF PLANETS</a></li>
+                    <li><a href="#">Pluto</a></li>
+                    <!-- <li><a href="#">Ceres</a></li>
+                    <li><a href="#">Eris</a></li>
+                    <li><a href="#">Haumea</a></li>
+                    <li><a href="#">Makemake</a></li> -->
+                </ul>
+            </div>
+            <div>
+                <p>EXPLORATION</p>
+                <ul>
+                    <li><a href="#">History of exploration of Solar System</a></li>
+                    <li><a href="#">History of exploration</a></li>
+                    <li><a href="#">Targets of exploration</a></li>
+                    <li><a href="#">Future of space exploration</a></li>
+                    <li><a href="#">Satellites</a></li>
+                    <li><a href="#">Spacecrafts</a></li>
+                    <li><a href="#">Living in space</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="text-center mt-4">
+        <p> 2017-2018 ExploreUniverse Inc.</p>
+        <p><a href="#" style="color: #fff;">ABOUT US</a> | <a href="#" style="color: #fff;">FEEDBACK</a> | <a href="#" style="color: #fff;">PRIVACY</a></p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
