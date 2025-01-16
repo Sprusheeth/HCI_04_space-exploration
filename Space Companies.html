@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Companies | Space Exploration Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://wallpaperaccess.com/full/316418.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            color: #1e90ff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            line-height: 1.6;
+        }
+
+        .companies {
+            padding: 40px 20px;
+        }
+
+        .companies h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .company-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .company-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .company-item img {
+            width: 45%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .company-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .company-text {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .company-text h3 {
+            font-size: 28px;
+            color: #1e90ff;
+            margin-bottom: 15px;
+        }
+
+        .company-text p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .footer-links {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #1e90ff;
+        }
+
+        .social-media a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #1e90ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🚀 Space Blog</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="lab3.html">Sign up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Space Companies</h1>
+        <p>Discover the leading companies that are driving the future of space exploration and innovation.</p>
+    </section>
+
+    <section class="companies">
+        <h2>Notable Space Companies</h2>
+
+        <div class="company-item">
+            <div class="company-text">
+                <h3>SpaceX</h3>
+                <p>Founded by Elon Musk in 2002, SpaceX is revolutionizing space technology with its reusable rockets, such as Falcon 9, and ambitious projects like Starship and Mars colonization.</p>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/SpaceX_logo_black.png" alt="SpaceX">
+        </div>
+
+        <div class="company-item">
+            <div class="company-text">
+                <h3>NASA</h3>
+                <p>The National Aeronautics and Space Administration (NASA) is the United States government agency responsible for pioneering space exploration, scientific discovery, and aeronautics research.</p>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="NASA">
+        </div>
+
+        <div class="company-item">
+            <div class="company-text">
+                <h3>Blue Origin</h3>
+                <p>Founded by Jeff Bezos, Blue Origin aims to build a future where millions of people can live and work in space, with projects like New Shepard and the Blue Moon lunar lander.</p>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Blue_Origin_logo.svg" alt="Blue Origin">
+        </div>
+
+        <div class="company-item">
+            <div class="company-text">
+                <h3>Virgin Galactic</h3>
+                <p>Virgin Galactic, founded by Richard Branson, focuses on commercial spaceflight, offering suborbital space tourism and developing technologies for advanced aerospace exploration.</p>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/bc/Virgin_Galactic_Logo.svg" alt="Virgin Galactic">
+        </div>
+
+        <div class="company-item">
+            <div class="company-text">
+                <h3>Rocket Lab</h3>
+                <p>Rocket Lab specializes in small satellite launches with its Electron rocket, providing cost-effective access to space for scientific, commercial, and defense missions.</p>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/en/e/e3/Rocket_Lab_logo.svg" alt="Rocket Lab">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Space Blog. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="social-media">
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

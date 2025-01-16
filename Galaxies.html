@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxies | Space Exploration Blog</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://wallpaperaccess.com/full/316418.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            color: #1e90ff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            line-height: 1.6;
+        }
+
+        .gallery {
+            padding: 40px 20px;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .gallery-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .galaxy-card {
+            background-color: rgba(26, 26, 26, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .galaxy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        .galaxy-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .galaxy-info {
+            padding: 20px;
+        }
+
+        .galaxy-info h3 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            color: #1e90ff;
+        }
+
+        .galaxy-info p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+        }
+
+        footer a {
+            color: #1e90ff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🚀 Space Blog</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="lab3.html">Sign up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Galaxies of the Universe</h1>
+        <p>Discover the majestic galaxies scattered across the cosmos. These immense star systems are home to wonders that defy imagination.</p>
+    </section>
+
+    <section class="gallery">
+        <h2>Fascinating Galaxies</h2>
+        <div class="gallery-cards">
+            <div class="galaxy-card">
+                <img src="https://th.bing.com/th/id/OIP.Y2Bw9jHkqc-BPngofsJDzAHaHa?rs=1&pid=ImgDetMain" alt="Milky Way">
+                <div class="galaxy-info">
+                    <h3>Milky Way</h3>
+                    <p>The galaxy we call home, housing billions of stars, including our Sun. Its spiral arms are rich with nebulae and new star formations.</p>
+                </div>
+            </div>
+            <div class="galaxy-card">
+                <img src="https://th.bing.com/th/id/OIP.FJGwZNxsx8YqnOXLnssV3gHaE-?rs=1&pid=ImgDetMain" alt="Andromeda Galaxy">
+                <div class="galaxy-info">
+                    <h3>Andromeda Galaxy</h3>
+                    <p>A spiral galaxy and the Milky Way's nearest neighbor, destined to merge with our galaxy in billions of years.</p>
+                </div>
+            </div>
+            <div class="galaxy-card">
+                <img src="https://aasnova.org/wp-content/uploads/2022/07/sig09-004.jpg" alt="Triangulum Galaxy">
+                <div class="galaxy-info">
+                    <h3>Triangulum Galaxy</h3>
+                    <p>Known for its bright nebulae, the Triangulum Galaxy is one of the closest large galaxies to the Milky Way.</p>
+                </div>
+            </div>
+            <div class="galaxy-card">
+                <img src="https://th.bing.com/th/id/OIP.we7IaLul_cvd00WX2JdjxwHaFI?rs=1&pid=ImgDetMain" alt="Whirlpool Galaxy">
+                <div class="galaxy-info">
+                    <h3>Whirlpool Galaxy</h3>
+                    <p>A stunning example of a spiral galaxy, interacting with a smaller companion galaxy, creating gravitational wonders.</p>
+                </div>
+            </div>
+            <div class="galaxy-card">
+                <img src="https://th.bing.com/th/id/OIP.-1kHMIMKDQ6AYi4lkThFbwHaEH?rs=1&pid=ImgDetMain" alt="Sombrero Galaxy">
+                <div class="galaxy-info">
+                    <h3>Sombrero Galaxy</h3>
+                    <p>Resembling a wide-brimmed hat, the Sombrero Galaxy is distinguished by its bright nucleus and vast halo of stars.</p>
+                </div>
+            </div>
+            <div class="galaxy-card">
+                <img src="https://www.universetoday.com/wp-content/uploads/2010/09/Cartwheel-Galaxy.jpg" alt="Cartwheel Galaxy">
+                <div class="galaxy-info">
+                    <h3>Cartwheel Galaxy</h3>
+                    <p>A ring galaxy with a captivating structure, likely formed by a collision with another galaxy.</p>
+                </div>
+            </div>
+            <div class="galaxy-card">
+                <img src="https://th.bing.com/th/id/OIP.2dT5KEwV4TLs7YtNgRQJZQHaFQ?rs=1&pid=ImgDetMain" alt="Cigar Galaxy">
+                <div class="galaxy-info">
+                    <h3>Cigar Galaxy</h3>
+                    <p>A starburst galaxy known for its rapid star formation and intense activity in its core.</p>
+                </div>
+            </div>
+            <div class="galaxy-card">
+                <img src="https://th.bing.com/th/id/OIP.NPv4kXoYciHD8ORYPQzPiAHaFm?rs=1&pid=ImgDetMain" alt="Large Magellanic Cloud">
+                <div class="galaxy-info">
+                    <h3>Large Magellanic Cloud</h3>
+                    <p>A satellite galaxy of the Milky Way, rich in stellar nurseries and fascinating star clusters.</p>
+                </div>
+            </div>
+            <div class="galaxy-card">
+                <img src="https://th.bing.com/th/id/R.80360e658c200a4c68d9e05c385a369f?rik=v%2fWk2EEZF%2bgd%2fw&riu=http%3a%2f%2fantwrp.gsfc.nasa.gov%2fapod%2fimage%2f0806%2fngc1300_hst_big.jpg&ehk=qdP8Vk6SOwm4k6l5bHUYjSBrMsT2k7W%2f0i4FtpqgEJA%3d&risl=&pid=ImgRaw&r=0" alt="NGC 1300">
+                <div class="galaxy-info">
+                    <h3>NGC 1300</h3>
+                    <p>A barred spiral galaxy featuring a stunning central bar and elegant arms, located 61 million light-years away.</p>
+                </div>
+            </div>
+            <div class="galaxy-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Black_hole_-_Messier_87_crop_max_res.jpg" alt="Messier 87">
+                <div class="galaxy-info">
+                    <h3>Messier 87</h3>
+                    <p>Known for its supermassive black hole, M87 is a giant elliptical galaxy in the Virgo Cluster.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Space Blog. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+    </footer>
+</body>
+</html>

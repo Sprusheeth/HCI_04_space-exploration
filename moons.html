@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moons | Space Exploration Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://wallpaperaccess.com/full/316418.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            color: #1e90ff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            line-height: 1.6;
+        }
+
+        .gallery {
+            padding: 40px 20px;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .moon-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .moon-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .moon-item img {
+            width: 45%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .moon-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .moon-text {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .moon-text h3 {
+            font-size: 28px;
+            color: #1e90ff;
+            margin-bottom: 15px;
+        }
+
+        .moon-text p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+        .lightbox-options {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .lightbox-options button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1e90ff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .lightbox-options button:hover {
+            background-color: #333;
+        }
+
+        footer {
+        background-color: rgba(26, 26, 26, 0.8);
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    footer p {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .footer-links {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 14px;
+        transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #1e90ff;
+    }
+
+    .social-media a {
+        color: #fff;
+        margin: 0 10px;
+        font-size: 24px;
+        transition: color 0.3s;
+    }
+
+    .social-media a:hover {
+        color: #1e90ff;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🚀 Space Blog</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="lab3.html">Sign up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Moons of the Solar System</h1>
+        <p>Explore the fascinating moons that orbit planets in our Solar System. These celestial bodies are home to unique landscapes and mysteries waiting to be uncovered.</p>
+    </section>
+
+    <section class="gallery">
+        <h2>Explore the Moons</h2>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Io</h3>
+                <p>Io is the most geologically active body in our solar system, with hundreds of volcanoes that frequently erupt with molten sulfur. Its colorful surface is constantly reshaped by volcanic activity.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/R.c049ad115d1656bf50852fa75274e707?rik=%2fjWWLbmsSZBM5Q&riu=http%3a%2f%2fwww.worlddreambank.org%2fBIG%2fIO-NORBG.JPG&ehk=1dIzjmjiN7li2z%2btPu9rKOHL0JmA3XSnsxOdWbyPF8Y%3d&risl=&pid=ImgRaw&r=0" alt="Io" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Europa</h3>
+                <p>Europa is one of Jupiter’s moons and is known for its icy surface. Beneath its icy shell, scientists believe a vast ocean may exist, potentially harboring life.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.O0r1lygS5jYNlIb7DuU7MgHaEK?rs=1&pid=ImgDetMain" alt="Europa" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Ganymede</h3>
+                <p>Ganymede, the largest moon of Jupiter, is the only moon in our solar system known to have its own magnetic field. It also has a subsurface ocean beneath its icy crust.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.AWJsY4Bp0wfxF4uylTxzNQHaG8?rs=1&pid=ImgDetMain" alt="Ganymede" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Callisto</h3>
+                <p>Callisto is the second-largest moon of Jupiter and is covered with impact craters. It is believed to have a subsurface ocean that may hold clues to the potential for life in outer space.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.GtDM9_MW0J30zJ5jOV3gUgHaHR?rs=1&pid=ImgDetMain" alt="Callisto" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Titan</h3>
+                <p>Titan, Saturn’s largest moon, has a thick atmosphere primarily composed of nitrogen. It is the only moon in our solar system with a dense atmosphere and is believed to have lakes of liquid methane on its surface.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.crbVSHJ-Zptjbf3dpmJT9wHaFl?rs=1&pid=ImgDetMain" alt="Titan" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>The Moon</h3>
+                <p>Earth’s only natural satellite, the Moon, has been a source of fascination for humans for centuries. It has a significant impact on life on Earth, influencing tides and stabilizing the planet’s axial tilt.</p>
+            </div>
+            <img src="https://universemagazine.com/wp-content/uploads/2022/08/zm4nfgq29yi91-1536x1536-1.jpg" alt="The Moon" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Enceladus</h3>
+                <p>Enceladus, one of Saturn’s moons, is famous for its geysers, which spew water vapor and ice particles into space. These geysers are believed to be connected to an ocean beneath its icy surface.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.t4hppIXB5FP7Ys-RFF1lhAHaHa?rs=1&pid=ImgDetMain" alt="Enceladus" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Hyperion</h3>
+                <p>Hyperion, another moon of Saturn, is known for its irregular shape and sponge-like appearance. It has an eccentric orbit and rotates chaotically in space.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.gfutTqdGYkCwlzFsb37ZOAHaHa?rs=1&pid=ImgDetMain" alt="Hyperion" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Mimas</h3>
+                <p>Mimas, a moon of Saturn, is known for the large crater on its surface, which gives it the appearance of the Death Star from Star Wars. It is a small, icy moon with a heavily cratered surface.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.cET_3BbmTEJ6JGke9BCobAHaE7?rs=1&pid=ImgDetMain" alt="Mimas" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Triton</h3>
+                <p>Triton, Neptune’s largest moon, is the only large moon in the solar system with a retrograde orbit, meaning it moves opposite to the rotation of its planet.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.OZIPH9no6_rzcpWgEbRafQHaDt?rs=1&pid=ImgDetMain" alt="Triton" onclick="openLightbox(this.src)">
+        </div>
+
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Rhea</h3>
+                <p>Rhea, Saturn's second-largest moon, is covered in a thick layer of ice and is believed to have a very thin atmosphere composed mainly of oxygen and carbon dioxide.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.uuPQc3DPXo9Zbt3RJMkF8AHaGL?rs=1&pid=ImgDetMain" alt="Rhea" onclick="openLightbox(this.src)">
+        </div>
+        
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Miranda</h3>
+                <p>Miranda is one of Uranus’s moons and is famous for its unique and strange geological features, including cliffs and valleys as deep as 12 miles.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.nlDrwYFLATexck7Mqk-vRwHaEK?rs=1&pid=ImgDetMain" alt="Miranda" onclick="openLightbox(this.src)">
+        </div>
+        
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Phoebe</h3>
+                <p>Phoebe is an irregular moon of Saturn that orbits in the opposite direction of most of Saturn’s moons. It is believed to be a captured asteroid.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.f6T9LVJ2_xF4kopjqQxdhADjES?rs=1&pid=ImgDetMain" alt="Phoebe" onclick="openLightbox(this.src)">
+        </div>
+        
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Enceladus</h3>
+                <p>Enceladus, one of Saturn’s moons, is famous for its geysers, which spew water vapor and ice particles into space. These geysers are believed to be connected to an ocean beneath its icy surface.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.TtYrD7FlUG4fae_pffKdeQHaEK?rs=1&pid=ImgDetMain" alt="Enceladus" onclick="openLightbox(this.src)">
+        </div>
+        
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Hyperion</h3>
+                <p>Hyperion is a moon of Saturn with a chaotic rotation. It is unique for its sponge-like appearance, with deep craters scattered across its surface.</p>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HyperionSaturn.jpg" alt="Hyperion" onclick="openLightbox(this.src)">
+        </div>
+        
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Umbriel</h3>
+                <p>Umbriel is one of the five major moons of Uranus and is the darkest of them all, with its surface covered in craters and a large number of ice deposits.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.cW0qdnwwDRaTb-hUEdiIygHaHU?rs=1&pid=ImgDetMain" alt="Umbriel" onclick="openLightbox(this.src)">
+        </div>
+        
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Charon</h3>
+                <p>Charon is Pluto’s largest moon, and it is so large relative to Pluto that the two bodies actually orbit a common center of mass outside of Pluto itself, classifying them as a binary system.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.C4fCf1bmSdujVXdZdxHy1QHaFJ?rs=1&pid=ImgDetMain" alt="Charon" onclick="openLightbox(this.src)">
+        </div>
+        
+        <div class="moon-item">
+            <div class="moon-text">
+                <h3>Deimos</h3>
+                <p>Deimos is one of Mars’s two moons, and it has a highly irregular shape. It is smaller than its counterpart, Phobos, and orbits farther from Mars.</p>
+            </div>
+            <img src="https://th.bing.com/th/id/OIP.5O3kQBOzhiSSrnDTpDuYsgHaF7?rs=1&pid=ImgDetMain" alt="Deimos" onclick="openLightbox(this.src)">
+        </div>
+        
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Space Blog. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="social-media">
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Expanded Image">
+        <div class="lightbox-options">
+            <button onclick="likeImage()"><i class="fas fa-thumbs-up"></i> Like</button>
+            <button onclick="shareImage()"><i class="fas fa-share-alt"></i> Share</button>
+            <button onclick="downloadImage()"><i class="fas fa-download"></i> Download</button>
+            <button onclick="commentImage()"><i class="fas fa-comment"></i> Comment</button>
+        </div>
+    </div>
+
+    <script>
+        let likeCount = 0;
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+
+        function likeImage() {
+            likeCount++;
+            alert(`You liked this image! Total likes: ${likeCount}`);
+        }
+
+        function shareImage() {
+            const imageSrc = document.getElementById('lightbox-img').src;
+            navigator.clipboard.writeText(imageSrc).then(() => {
+                alert('Image link copied to clipboard! Share it anywhere.');
+            }).catch(() => {
+                alert('Failed to copy the image link.');
+            });
+        }
+
+        function downloadImage() {
+            const imageSrc = document.getElementById('lightbox-img').src;
+            const anchor = document.createElement('a');
+            anchor.href = imageSrc;
+            anchor.download = 'moon-image.jpg';
+            anchor.click();
+            alert('Image downloaded!');
+        }
+
+        function commentImage() {
+            const comment = prompt('Enter your comment:');
+            if (comment) {
+                alert(`Comment added: ${comment}`);
+            } else {
+                alert('No comment was added.');
+            }
+        }
+    </script>
+</body>
+</html>

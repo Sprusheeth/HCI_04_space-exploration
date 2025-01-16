@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Space Exploration</title>
   <style>
-    /* General Styles */
     * {
       margin: 0;
       padding: 0;
@@ -23,7 +22,6 @@
       text-decoration: none;
     }
 
-    /* Navbar */
     .navbar {
       position: fixed;
       width: 100%;
@@ -55,7 +53,6 @@
       color: #1E90FF;
     }
 
-    /* Hero Section */
     .hero {
       display: flex;
       justify-content: center;
@@ -132,7 +129,6 @@
       margin-top: 1em;
     }
 
-    /* Gallery Section */
     .gallery-section {
       padding: 3em 1em;
       background: #111111;
@@ -156,7 +152,6 @@
       border-radius: 10px;
     }
 
-    /* About Section */
     .about-section {
       padding: 3em 1em;
       background: #000000;
@@ -174,7 +169,6 @@
       font-size: 1.2em;
     }
 
-    /* Contact Section */
     .contact-section {
       padding: 3em 1em;
       background: #111111;
@@ -187,10 +181,21 @@
     }
 
     .contact-form input,
-    .contact-form textarea {
+    .contact-form textarea 
+{
       width: 100%;
       padding: 0.8em;
       margin-bottom: 1em;
+      border: 1px solid #333333;
+      border-radius: 5px;
+      background: #222222;
+      color: #ffffff;
+    }
+
+    .your{
+      width: 100%;
+      padding: 0.8em;
+      height: 200px;
       border: 1px solid #333333;
       border-radius: 5px;
       background: #222222;
@@ -210,7 +215,6 @@
       background: #104E8B;
     }
 
-    /* Footer */
     .footer {
       padding: 2em;
       text-align: center;
@@ -224,16 +228,15 @@
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">SpaceBlog</div>
     <ul>
       <li><a href="home.html">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="index.html">Blog</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="lab3.html">Signin</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="lab3.html">Sign up</a></li>
     </ul>
   </nav>
 
@@ -241,11 +244,10 @@
     <div>
       <h1>Explore the Final Frontier</h1>
       <p>Dive into the mysteries of the universe with our space exploration blog and gallery.</p>
-      <a href="index.html"></a>Read the Blog</a>
+      <a href="index.html" style="hover{color: #1E90FF;}">Read the Blog</a>
     </div>
   </section>
 
-  <!-- Space Blog Section -->
   <section id="blog" class="blog-section">
     <h2>Latest from the Space Blog</h2>
     <div class="blog-cards">
@@ -262,33 +264,40 @@
     </div>
   </section>
 
-  <!-- Gallery Section -->
-  <!-- <section id="gallery" class="gallery-section">
+  <section id="gallery" class="gallery-section">
     <h2>The Wonders of the Universe</h2>
     <div class="gallery">
       <img src="https://www.alsc.ala.org/blog/wp-content/uploads/2015/12/fullsize_wonders_universe.jpg" alt="Space Image 1">
       <img src="https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vbWVkaWEucmJsLm1zL2ltYWdlP3U9JTJGZmlsZXMlMkYyMDE2JTJGMDclMkYxMSUyRjYzNjAzODc0MzQwODk0MzAzOS0xMjU0NzM1NTU0X0Nhc3Npb3BlaWFfQV9TcGl0emVyX0Nyb3AuanBnJmhvPWh0dHBzJTNBJTJGJTJGYXo2MTY1Nzgudm8ubXNlY25kLm5ldCZzPTYxMCZoPTliOWI3Njk0OWMxMGE1YWRhMDc5YWE2YTZiNGFiYzNkOTIzYjIyOWVlM2ZmZTFjNzMzN2JlZDI4M2QxM2I5YWImc2l6ZT05ODB4JmM9MjUwMzg3NTUyMSIsImV4cGlyZXNfYXQiOjE2NTcwODkzMjV9.ishQqj8PkGJJvijcW-X_AtYsWiI2OY4XSaV4UDTZfaM/img.jpg?width=1200&height=628" alt="Space Image 2">
-    </div>
-  </section> -->
+      <img src="https://th.bing.com/th/id/OIP.Y2Bw9jHkqc-BPngofsJDzAHaHa?rs=1&pid=ImgDetMain" alt="Milky Way" onclick="openLightbox(this.src)">
+            <img src="https://th.bing.com/th/id/OIP.FJGwZNxsx8YqnOXLnssV3gHaE-?rs=1&pid=ImgDetMain" alt="Andromeda Galaxy" onclick="openLightbox(this.src)">
+            <img src="https://aasnova.org/wp-content/uploads/2022/07/sig09-004.jpg" alt="Triangulum Galaxy" onclick="openLightbox(this.src)">
+            <img src="https://th.bing.com/th/id/OIP.we7IaLul_cvd00WX2JdjxwHaFI?rs=1&pid=ImgDetMain" alt="Whirlpool Galaxy" onclick="openLightbox(this.src)">
+            <img src="https://th.bing.com/th/id/OIP.-1kHMIMKDQ6AYi4lkThFbwHaEH?rs=1&pid=ImgDetMain" alt="Sombrero Galaxy" onclick="openLightbox(this.src)">
+            <img src="https://www.universetoday.com/wp-content/uploads/2010/09/Cartwheel-Galaxy.jpg" alt="Cartwheel Galaxy" onclick="openLightbox(this.src)">
+            <img src="https://th.bing.com/th/id/OIP.2dT5KEwV4TLs7YtNgRQJZQHaFQ?rs=1&pid=ImgDetMain" alt="Cigar Galaxy" onclick="openLightbox(this.src)">
+            <img src="https://th.bing.com/th/id/OIP.NPv4kXoYciHD8ORYPQzPiAHaFm?rs=1&pid=ImgDetMain" alt="Large Magellanic Cloud" onclick="openLightbox(this.src)">
+            <img src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2024/01/ngc_1300/25455419-1-eng-GB/NGC_1300_pillars.jpg" alt="NGC 1300" onclick="openLightbox(this.src)">
 
-  <!-- About Section -->
+    </div>
+  </section>
+
   <section id="about" class="about-section">
     <h2>About Us</h2>
     <p>Welcome to SpaceBlog, where we explore the universe through articles, images, and discussions.</p>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <h2>Contact Us</h2>
     <form class="contact-form">
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
       <textarea placeholder="Your Message" rows="5" required></textarea>
+      <input type="text" placeholder="Your thoughts" class="your">
       <button type="submit">Send Message</button>
     </form>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2024 SpaceBlog | All Rights Reserved</p>
   </footer>

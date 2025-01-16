@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planets - Space Exploration Blog</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://wallpaperaccess.com/full/316418.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+        }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #333;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('https://wallpapercave.com/wp/wp9109919.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .planets-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+        }
+
+        .planets-navigation a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .planets-navigation a:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .planet-card {
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .planet-card:hover {
+            transform: scale(1.05);
+        }
+
+        .planet-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #1e90ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🚀 Space Blog</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="lab3.html">Sign up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Planets of Our Solar System</h1>
+        <p>Discover the wonders of each planet, from Mercury to Neptune. Explore their unique features and mysteries.</p>
+    </section>
+
+    <section class="planets-navigation">
+        <a href="#mercury">Mercury</a>
+        <a href="#venus">Venus</a>
+        <a href="#earth">Earth</a>
+        <a href="#mars">Mars</a>
+        <a href="#jupiter">Jupiter</a>
+        <a href="#saturn">Saturn</a>
+        <a href="#uranus">Uranus</a>
+        <a href="#neptune">Neptune</a>
+    </section>
+
+    <main>
+        <div class="planet-card" id="mercury" onclick="window.location.href='Mercury.html'" >
+            <img src="https://www.cronodon.com/images/mercury-1a.jpg" alt="Mercury">
+            <h2>Mercury</h2>
+            <p>The closest planet to the Sun, Mercury is a rocky world with extreme temperatures and a cratered surface.</p>
+        </div>
+        <div class="planet-card" id="venus" onclick="window.location.href='Venus.html'">
+            <img src="https://th.bing.com/th/id/R.fbd1c61112ce82b6eaabd768b1e24eb0?rik=utoAymZgbS7R%2bA&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f8%2f85%2fVenus_globe.jpg&ehk=XD7HnHWxbEeZwQYWftZEZ%2bBbQjhfu2QmyEmiJNqhp%2fg%3d&risl=1&pid=ImgRaw&r=0" alt="Venus">
+            <h2>Venus</h2>
+            <p>Known as Earth's twin, Venus has a dense atmosphere of carbon dioxide and surface temperatures hot enough to melt lead.</p>
+        </div>
+        <div class="planet-card" id="earth" onclick="window.location.href='earth.html'">
+            <img src="https://th.bing.com/th/id/R.58084227945dcb2672841631e2187d26?rik=owDbq2iScTtWiA&riu=http%3a%2f%2fupload.wikimedia.org%2fwikipedia%2fcommons%2f7%2f7b%2fEarth_Western_Hemisphere.jpg&ehk=S7Nkb02kJT1tIJrwc4fzw7h%2fnyin0DfyL8hV%2bRKJ1gY%3d&risl=&pid=ImgRaw&r=0" alt="Earth">
+            <h2>Earth</h2>
+            <p>The only planet known to support life, Earth is a beautiful blue marble teeming with biodiversity.</p>
+        </div>
+        <div class="planet-card" id="mars" onclick="window.location.href='mars.html'">
+            <img src="https://th.bing.com/th/id/OIP.pAoa3h8olbjAzC6SVtfLqAHaIb?rs=1&pid=ImgDetMain" alt="Mars">
+            <h2>Mars</h2>
+            <p>The Red Planet is a cold, dusty desert world with a history of water and potential for future exploration.</p>
+        </div>
+        <div class="planet-card" id="jupiter"onclick="window.location.href='Jupiter-page.html'">
+            <img src="https://th.bing.com/th/id/R.c43ce265c6a0f2e63b111ff49ab424c1?rik=4tstGs3UJv7U1Q&riu=http%3a%2f%2fwww.nasa.gov%2fsites%2fdefault%2ffiles%2fthumbnails%2fimage%2fjupapr3color-jd-170304.png&ehk=D%2fk1ezmsm5%2fSNIQWRIfH8rJPxhI%2f4M3ho%2bkSuuQ93rU%3d&risl=&pid=ImgRaw&r=0" alt="Jupiter">
+            <h2>Jupiter</h2>
+            <p>The largest planet in our solar system, Jupiter is known for its Great Red Spot, a massive storm.</p>
+        </div>
+        <div class="planet-card" id="saturn"onclick="window.location.href='satrun.html'">
+            <img src="https://starwalk.space/gallery/images/saturn-planet-guide/1140x641" alt="Saturn">
+            <h2>Saturn</h2>
+            <p>Famous for its stunning ring system, Saturn is a gas giant with numerous moons.</p>
+        </div>
+        <div class="planet-card" id="uranus"onclick="window.location.href='Uranus.html'">
+            <img src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/HJDS012pYkysh5h0a/videoblocks-188z_space_27122017_19_uranus2_hrtbou_zh_thumbnail-1080_01.png" alt="Uranus">
+            <h2>Uranus</h2>
+            <p>An ice giant, Uranus rotates on its side and has a bluish color due to methane in its atmosphere.</p>
+        </div>
+        <div class="planet-card" id="neptune"onclick="window.location.href='Neptune.html'">
+            <img src="https://th.bing.com/th/id/OIP.cyMW7AvwkY6QU3PrEM2fZgHaDN?rs=1&pid=ImgDetMain" alt="Neptune">
+            <h2>Neptune</h2>
+            <p>The farthest planet from the Sun, Neptune is a windy, icy giant with a deep blue hue.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Space Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
